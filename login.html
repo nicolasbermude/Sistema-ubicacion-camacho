@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div ng-repeat="user in users">
+    
+       <ion-img img style="width:200px; height:200px" src="../assets/imgs/uni.jpg"></ion-img>
+       <ion-list>
+
+          <ion-item>
+            <ion-label floating>Usuario Academusoft</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        
+        </ion-list>
+        <div class="centrado">  <button button-full button-positive>
+            <button ion-button color="blue" round>Ingresar</button>
+        </button>
+      </div>
+  </div>
+
+</ion-content>
