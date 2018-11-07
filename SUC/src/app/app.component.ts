@@ -16,7 +16,7 @@ import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = LugaresPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -25,7 +25,6 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Login', component: LoginPage },
       { title: 'Inicio', component: InicioPage },
       { title: 'Lugares', component: LugaresPage },
       { title: 'Notas', component: NotasPage },

@@ -6,9 +6,12 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { InicioPage } from '../pages/inicio/inicio';
 import { LugaresPage } from '../pages/lugares/lugares';
+import { RutaLugaresPage } from '../pages/ruta-lugares/ruta-lugares';
 import { NotasPage } from '../pages/notas/notas';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
+
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     InicioPage,
     LugaresPage,
+    RutaLugaresPage,
     NotasPage,
     AcercaDePage,
     CerrarSesionPage
@@ -33,6 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     InicioPage,
     LugaresPage,
+    RutaLugaresPage,
     NotasPage,
     AcercaDePage,
     CerrarSesionPage
@@ -41,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -23,10 +23,10 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-    this.soapCall();
+    /* this.soapCall(); */
   }
 
-  soapCall() {
+  /* soapCall() {
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', 'http://localhost/webservices/voltage-info-services/wsdl/sgcc3.wsdl', true);
@@ -65,6 +65,6 @@ export class LoginPage {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.responseType = "document";
     xmlhttp.send(sr);
-  }
+  } */
 
 }
