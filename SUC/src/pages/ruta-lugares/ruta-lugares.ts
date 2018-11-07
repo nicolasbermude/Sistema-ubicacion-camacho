@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
 declare var google;
@@ -18,7 +18,7 @@ export class RutaLugaresPage {
   @ViewChild('directionsPanel') directionsPanel: ElementRef;
   map: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation) {
+  constructor(public navParams: NavParams, public geolocation: Geolocation) {
 
     this.latitud = navParams.get('latitud');
     this.longitud = navParams.get('longitud');
