@@ -12,10 +12,20 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card (click)="rutaLugares()">
-    <img src="http://caliescribe.com/sites/default/files/imagenes_revista/2012/03/26-31/parquesoft/parquesoft-cali-wide.jpg"/>
-    <div class="card-title">ParqueSoft</div>
-    <div class="card-subtitle">Empresa de Software</div>
-  </ion-card>
+  <ion-list>
+
+    <ion-item *ngFor="let lugar of listlugares">
+
+      <ion-card (click)="rutaLugares(lugar.latitud,lugar.longitud,lugar.nombre)">
+
+        <img src="{{ lugar.imagen }}" />
+        <div class="card-title">{{ lugar.nombre }}</div>
+        <div class="card-subtitle">{{ lugar.descripcion }}</div>
+        
+      </ion-card>
+
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

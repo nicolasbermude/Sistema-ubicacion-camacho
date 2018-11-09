@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RutaLugaresPage } from '../ruta-lugares/ruta-lugares';
-
-/**
- * Generated class for the LugaresPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LugarProvider } from '../../providers/lugar/lugar';
 
 @IonicPage()
 @Component({
@@ -16,20 +10,24 @@ import { RutaLugaresPage } from '../ruta-lugares/ruta-lugares';
 })
 export class LugaresPage {
 
-  latitud = 3.332870;
-  longitud = -76.523907;
-  lugar = 'ParqueSoft';
+  listlugares;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public lugarProvider: LugarProvider) {
+
+    this.getLugares();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LugaresPage');
+  getLugares(){
+
+    this.lugarProvider.getLugares().then(data =>{
+
+      this.listlugares = data;
+    })
   }
 
-  rutaLugares():void{
+  rutaLugares(latitud, longitud, lugar):void{
 
-    this.navCtrl.push(RutaLugaresPage, {latitud:this.latitud, longitud:this.longitud, lugar:this.lugar});
+    this.navCtrl.push(RutaLugaresPage, {latitud: latitud, longitud: longitud, lugar: lugar});
   }
 
 }
