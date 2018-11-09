@@ -8,6 +8,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 import { LugaresPage } from '../pages/lugares/lugares';
 import { RutaLugaresPage } from '../pages/ruta-lugares/ruta-lugares';
 import { NotasPage } from '../pages/notas/notas';
+import { EventoPage } from '../pages/evento/evento';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 
@@ -17,6 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LugarProvider } from '../providers/lugar/lugar';
 import { HttpClientModule } from '@angular/common/http';
+import { EventoProvider } from '../providers/evento/evento';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     LugaresPage,
     RutaLugaresPage,
     NotasPage,
+    EventoPage,
     AcercaDePage,
     CerrarSesionPage
   ],
@@ -42,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     LugaresPage,
     RutaLugaresPage,
     NotasPage,
+    EventoPage,
     AcercaDePage,
     CerrarSesionPage
 
@@ -52,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LugarProvider
+    LugarProvider,
+    EventoProvider
   ]
 })
 export class AppModule {}
