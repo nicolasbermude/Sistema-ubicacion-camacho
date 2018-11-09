@@ -17,14 +17,25 @@ export class LoginPage {
   chVal: string;
   choosenNumberValue: any;
   response_number: number;
+  splash = true;
+  tabBarElement: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.tabBarElement = document.querySelector('.tabbar');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
     /* this.soapCall(); */
+    
+     this.tabBarElement.style.display ='none';
+    setTimeout(() => {
+      this.splash = false;
+      this.tabBarElement.style.display='flex';
+    }, 2800);
+    
   }
+  
 
   /* soapCall() {
 
