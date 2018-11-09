@@ -1,5 +1,4 @@
 <ion-header>
-
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -9,9 +8,21 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
-  
-
-</ion-content>
+<ion-content padding >
+  <ion-card>
+  <ion-card-header>
+ Clase 1
+  </ion-card-header>
+  <ion-card-content>
+  materia: Ingenieria de software
+  <br>
+  lugar: sede sur
+  <br>
+  horario:10:00 am a 1:00pm
+  <button   ion-button  (click)="openMenu()">
+   <ion-col><ion-icon ios="ios-apps" md="md-apps" ></ion-icon></ion-col>
+ </button>
+  </ion-card-content>
+  </ion-card>
+ </ion-content>
+ 
