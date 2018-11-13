@@ -17,7 +17,21 @@ export class EventoProvider {
 
 
   }
-public getevento() {
+public geteventos(id) {
+
+    return new Promise(resolve => {
+
+      this.http.get(this.baseUrl + "evento/"+id).subscribe(data =>{
+
+        resolve(data);
+      }, err =>{
+
+        console.log(err);
+      })
+    })
+  }
+  
+  public getevento() {
 
     return new Promise(resolve => {
 
@@ -30,4 +44,31 @@ public getevento() {
       })
     })
   }
+
+addevento(evento){
+  return new Promise(resolve => {
+
+    this.http.put(this.baseUrl + "evento",evento).subscribe(data =>{
+
+      resolve(data);
+    }, err =>{
+
+      console.log(err);
+    })
+  })
+}
+
+removeevento(evento){
+  return new Promise(resolve => {
+
+    this.http.delete(this.baseUrl + "evento/",evento).subscribe(data =>{
+
+      resolve(data);
+    }, err =>{
+
+      console.log(err);
+    })
+  })
+}
+
 }

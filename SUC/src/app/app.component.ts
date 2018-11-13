@@ -18,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   
-  rootPage: any = EventoPage;
+  rootPage: any = InicioPage;
 
   pages: Array<{title: string, component: any}>;
 

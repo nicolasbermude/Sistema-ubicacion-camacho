@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>crearevento</ion-title>
+    <ion-title>Crear evento</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,37 @@
 
 <ion-content padding>
 
+<ion-item>
+<ion-label>titulo</ion-label>
+<ion-input type="text"[(ngModel)]="titulo"></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-label>mensaje</ion-label>
+  <ion-input type="text"[(ngModel)]="mensaje"></ion-input>
+  </ion-item>
+
+<ion-item>
+  </ion-label>Fecha inicio</ion-label>
+<icon-datetime displayFormat="DD MMM, YYY hh:mm A"[(ngModel)]="fechainicio"></icon-datetime>
+</ion-item>
+
+<ion-item>
+</ion-label>Fecha fin</ion-label>
+<icon-datetime displayFormat="DD MMM, YYY hh:mm A"[(ngModel)]="fechainicio"></icon-datetime>
+</ion-item>
+
+<br>
+<br>
+<div pdding>
+  <button ion-button block[disable]="name.length < 3" (click)="addevento()">agregar avento</button>
+  </div>
+
+  <div pdding>
+    <button ion-button block(click)="delete">Eliminar</button>
+    </div>
+
 </ion-content>
+
+
