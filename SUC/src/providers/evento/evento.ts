@@ -1,37 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the EventoProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class EventoProvider {
 
   baseUrl:string = "http://localhost:8090/suc/";
   
   constructor(public http: HttpClient) {
-    console.log('Hello EventoProvider Provider');
 
-
-  }
-public geteventos(id) {
-
-    return new Promise(resolve => {
-
-      this.http.get(this.baseUrl + "evento/"+id).subscribe(data =>{
-
-        resolve(data);
-      }, err =>{
-
-        console.log(err);
-      })
-    })
+    console.log('Carga del provider.');
   }
   
-  public getevento() {
+  getevento() {
 
     return new Promise(resolve => {
 
@@ -45,30 +25,32 @@ public geteventos(id) {
     })
   }
 
-addevento(evento){
-  return new Promise(resolve => {
+  addevento(evento){
 
-    this.http.put(this.baseUrl + "evento",evento).subscribe(data =>{
+    return new Promise(resolve => {
 
-      resolve(data);
-    }, err =>{
+      this.http.put(this.baseUrl + "evento",evento).subscribe(data =>{
 
-      console.log(err);
+        resolve(data);
+      }, err =>{
+
+        console.log(err);
+      })
     })
-  })
-}
+  }
 
-removeevento(evento){
-  return new Promise(resolve => {
+  removeevento(idevento){
+    
+    return new Promise(resolve => {
 
-    this.http.delete(this.baseUrl + "evento/",evento).subscribe(data =>{
+      this.http.delete(this.baseUrl + "evento/" + idevento).subscribe(data =>{
 
-      resolve(data);
-    }, err =>{
+        resolve(data);
+      }, err =>{
 
-      console.log(err);
+        console.log(err);
+      })
     })
-  })
-}
+  }
 
 }

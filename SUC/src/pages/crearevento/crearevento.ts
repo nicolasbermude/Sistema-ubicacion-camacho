@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EventoProvider } from '../../providers/evento/evento';
 
-/**
- * Generated class for the CreareventoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-crearevento',
@@ -22,14 +15,17 @@ export class CreareventoPage {
   fechafin;
   hora;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider) {
+  dateNow : Date = new Date();
+  dateNowISO = this.dateNow.toISOString();
 
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider) {}
 
   ionViewDidLoad() {
+
     this.fechainicio = new Date();
     this.fechafin = new Date();
   }
+
   addevento() {
 
     let evento = {
@@ -38,19 +34,18 @@ export class CreareventoPage {
       fechainicio: this.fechainicio,
       fechafin: this.fechafin,
       hora: this.hora,
-      fecha: "2018-11-13",
+      fecha: this.dateNowISO,
       estado: true
     }
+
     if (this.titulo !== '', this.mensaje !== '', this.fechainicio !== '', this.fechafin !== '', this.hora !== '') {
 
       this.EventoProvider.addevento(evento).then(data => {
-        console.log(data);
 
+        console.log(data);
       })
 
+      this.navCtrl.pop();
     }
-
   }
-
-
 }

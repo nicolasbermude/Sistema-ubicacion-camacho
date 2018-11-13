@@ -1,9 +1,4 @@
-<!--
-  Generated template for the EventoPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -17,15 +12,39 @@
   <ion-list>
     <ion-item *ngFor="let evento of eventos">
       <ion-card>
+
         <ion-card-header>
+
           {{ evento.titulo }}
+
         </ion-card-header>
+
         <ion-card-content>
-        {{ evento.mensaje }} <br><br>
-        Fecha inicio: {{ evento.fechainicio }}  <br>
-        Fecha fin: {{ evento.fechafin }}  <br>
-        Hora: {{ evento.hora }}
+
+          {{ evento.mensaje }} <br><br>
+          Fecha inicio: {{ evento.fechainicio }}  <br>
+          Fecha fin: {{ evento.fechafin }}  <br>
+          Hora: {{ evento.hora }}
+
         </ion-card-content>
+      
+        <ion-row>
+
+          <ion-col col-4>
+          </ion-col>
+
+          <ion-col col-8>
+
+            <button   ion-button  (click)="openMenu( evento.idevento )">
+
+              <ion-col><ion-icon ios="ios-apps" md="md-apps" ></ion-icon></ion-col>
+              
+            </button>
+
+          </ion-col>
+
+        </ion-row>
+      
       </ion-card>
     </ion-item>
   </ion-list>
