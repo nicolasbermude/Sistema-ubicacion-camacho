@@ -9,6 +9,8 @@ import { LugaresPage } from '../pages/lugares/lugares';
 import { RutaLugaresPage } from '../pages/ruta-lugares/ruta-lugares';
 import { NotasPage } from '../pages/notas/notas';
 import { EventoPage } from '../pages/evento/evento';
+import { CreareventoPage } from '../pages/crearevento/crearevento';
+
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 
@@ -29,6 +31,7 @@ import { EventoProvider } from '../providers/evento/evento';
     RutaLugaresPage,
     NotasPage,
     EventoPage,
+    CreareventoPage,
     AcercaDePage,
     CerrarSesionPage
   ],
@@ -46,6 +49,7 @@ import { EventoProvider } from '../providers/evento/evento';
     RutaLugaresPage,
     NotasPage,
     EventoPage,
+    CreareventoPage,
     AcercaDePage,
     CerrarSesionPage
 

@@ -24,27 +24,29 @@
 <ion-item>
   <ion-label>mensaje</ion-label>
   <ion-input type="text"[(ngModel)]="mensaje"></ion-input>
-  </ion-item>
-
-<ion-item>
-  </ion-label>Fecha inicio</ion-label>
-<icon-datetime displayFormat="DD MMM, YYY hh:mm A"[(ngModel)]="fechainicio"></icon-datetime>
 </ion-item>
 
 <ion-item>
-</ion-label>Fecha fin</ion-label>
-<icon-datetime displayFormat="DD MMM, YYY hh:mm A"[(ngModel)]="fechainicio"></icon-datetime>
+  <ion-label>Fecha inicio</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fechainicio"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Fecha fin</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fechafin"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Hora</ion-label>
+  <ion-datetime displayFormat="hh:mm:ss" [(ngModel)]="hora"></ion-datetime>
 </ion-item>
 
 <br>
 <br>
+
 <div pdding>
-  <button ion-button block[disable]="name.length < 3" (click)="addevento()">agregar avento</button>
-  </div>
-
-  <div pdding>
-    <button ion-button block(click)="delete">Eliminar</button>
-    </div>
+  <button ion-button block [disabled]="titulo.length < 3 && mensaje.length < 3" (click)="addevento()">agregar avento</button>
+</div>
 
 </ion-content>
 

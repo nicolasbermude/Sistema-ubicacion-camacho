@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { EventoPage } from '../evento/evento';
+import { CreareventoPage } from '../crearevento/crearevento';
 
 @Component({
   selector: 'page-inicio',
@@ -54,7 +55,7 @@ export class InicioPage {
           text: 'Crear Evento',
           icon: !this.platform.is('ios') ? 'create' : null,
           handler: () => {
-            
+            this.navCtrl.push(CreareventoPage);
             console.log('Favorite clicked');
           }
         },

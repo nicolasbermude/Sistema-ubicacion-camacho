@@ -16,40 +16,41 @@ import { EventoProvider } from '../../providers/evento/evento';
 })
 export class CreareventoPage {
 
-titulo :string="";
-mensaje :string="";
-
-
-fechainicio; 
-fechafin ;
-hora;
+  titulo: string = "";
+  mensaje: string = "";
+  fechainicio;
+  fechafin;
+  hora;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider) {
+
   }
 
   ionViewDidLoad() {
-    this.fechainicio= new Date();
-    this.fechafin= new Date();
+    this.fechainicio = new Date();
+    this.fechafin = new Date();
   }
-addevento(){ 
- 
- let evento = {
-  titulo : this.titulo,
-  mensaje : this.mensaje,
-  fechainicio: this.fechainicio,
-  fechafin: this.fechafin,
-  hora:this.hora
- }
- if(this.titulo !== '',this.mensaje !== '',this.fechainicio !== '',this.fechafin !== '',this.fechafin !== ''){
+  addevento() {
 
-  this.EventoProvider.addevento(evento).then(data =>{
-    console.log(data);
-    
+    let evento = {
+      titulo: this.titulo,
+      mensaje: this.mensaje,
+      fechainicio: this.fechainicio,
+      fechafin: this.fechafin,
+      hora: this.hora,
+      fecha: "2018-11-13",
+      estado: true
+    }
+    if (this.titulo !== '', this.mensaje !== '', this.fechainicio !== '', this.fechafin !== '', this.hora !== '') {
+
+      this.EventoProvider.addevento(evento).then(data => {
+        console.log(data);
+
       })
 
- }
- 
-}
+    }
+
+  }
 
 
 }
