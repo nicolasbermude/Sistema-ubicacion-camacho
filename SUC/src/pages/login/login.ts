@@ -28,10 +28,10 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
     /* this.soapCall(); */
     
-     this.tabBarElement.style.display ='none';
+    /* this.tabBarElement.style.display ='none';*/
     setTimeout(() => {
       this.splash = false;
-      this.tabBarElement.style.display='flex';
+     /* this.tabBarElement.style.display='flex';*/
     }, 2800);
     
   }
