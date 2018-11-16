@@ -19,6 +19,7 @@ export class NotasPage {
   }
 
   ionViewDidLoad() {
+    window.open("https://play.google.com/store/apps/details?id=com.notas.uniajc&hl=es");
     console.log('ionViewDidLoad NotasPage');
   }
 
