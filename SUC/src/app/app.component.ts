@@ -7,7 +7,6 @@ import { LoginPage } from '../pages/login/login';
 import { InicioPage } from '../pages/inicio/inicio';
 import { LugaresPage } from '../pages/lugares/lugares';
 import { NotasPage } from '../pages/notas/notas';
-import { EventoPage } from '../pages/evento/evento';
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 
@@ -17,8 +16,7 @@ import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-
-  rootPage: any = InicioPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 

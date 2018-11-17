@@ -2,20 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class LugarProvider {
+export class LoginProvider {
 
-  baseUrl:string = "http://localhost:8090/suc/";
+  baseUrl:string = "http://localhost:8091/uniajc/login?usuario=";
 
   constructor(public http: HttpClient) {
-    
-    console.log('Provider Lugar');
+    console.log('Provider Login');
   }
 
-  public getLugares() {
+  public login(usuario, password) {
 
     return new Promise(resolve => {
 
-      this.http.get(this.baseUrl + "lugar").subscribe(data =>{
+      this.http.get(this.baseUrl + usuario + "&password=" + password).subscribe(data =>{
 
         resolve(data);
       }, err =>{

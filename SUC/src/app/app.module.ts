@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LugarProvider } from '../providers/lugar/lugar';
 import { HttpClientModule } from '@angular/common/http';
 import { EventoProvider } from '../providers/evento/evento';
+import { LoginProvider } from '../providers/login/login';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { EventoProvider } from '../providers/evento/evento';
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LugarProvider,
-    EventoProvider
+    EventoProvider,
+    LoginProvider
   ]
 })
 export class AppModule {}

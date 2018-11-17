@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, LoadingController, Loading, AlertController  } from 'ionic-angular';
+import { LoginProvider } from '../../providers/login/login';
+import { InicioPage } from '../../pages/inicio/inicio';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -20,62 +16,69 @@ export class LoginPage {
   splash = true;
   tabBarElement: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.tabBarElement = document.querySelector('.tabbar');
+  listlogin;
+  dato;
+  identificacion;
+  public loading:Loading;
+  myForm: FormGroup;
+
+  constructor(public navCtrl: NavController, public loginProvider: LoginProvider, public formBuilder: FormBuilder, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+    
+    this.myForm = this.formBuilder.group({
+
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  login(){
+
+    this.loginProvider.login(this.myForm.value.usuario, this.myForm.value.password).then(data =>{
+
+      this.listlogin = data;
+      this.dato = this.listlogin[0];
+
+      try {
+
+        this.identificacion = this.dato["identificacion"];
+        this.navCtrl.setRoot(InicioPage, {identificacion: this.identificacion});
+      }catch(error) {
+
+        console.error(error);
+        this.alertaError();
+      }
+    })
+
+    this.loading = this.loadingCtrl.create({
+
+      dismissOnPageChange: true,
+    });
+
+    this.loading.present();
+
+    setTimeout(() => {
+      
+      this.loading.dismiss();
+    }, 5000);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-    /* this.soapCall(); */
-    
-    /* this.tabBarElement.style.display ='none';*/
+
     setTimeout(() => {
+
       this.splash = false;
-     /* this.tabBarElement.style.display='flex';*/
     }, 2800);
-    
   }
-  
 
-  /* soapCall() {
+  alertaError() {
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('POST', 'http://localhost/webservices/voltage-info-services/wsdl/sgcc3.wsdl', true);
-    var input_element = <HTMLInputElement> document.getElementById("choosenNumber");
-    console.log("chVal : " + this.chVal);
-    this.choosenNumberValue = this.chVal;
-    //the following variable contains my xml soap request (that you can get thanks to SoapUI for example)
-    var sr =
-        `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://WEBSERVICE_UNIAJC/">
-          <soapenv:Header/>
-          <soapenv:Body>
-              <web:autenticarUsuario_MedianteCredenciales_SMART_CAMPUS>
-                <!--Optional:-->
-                <usuario>jdhalinrueda</usuario>
-                <!--Optional:-->
-                <pass>QWxwaGE1MjYwamRybA==</pass>
-                <MantenerSesionactiva>?</MantenerSesionactiva>
-                <!--Optional:-->
-                <nombreApp>SIUT</nombreApp>
-                <!--Optional:-->
-                <claveApp>U0lVVDIwMTc=</claveApp>
-              </web:autenticarUsuario_MedianteCredenciales_SMART_CAMPUS>
-          </soapenv:Body>
-        </soapenv:Envelope>`;
+    let alert = this.alertCtrl.create({
 
-    xmlhttp.onreadystatechange =  () => {
-        if (xmlhttp.readyState == 4) {
-            if (xmlhttp.status == 200) {
-                var xml = xmlhttp.responseXML;
-                this.response_number = parseInt(xml.getElementsByTagName("return")[0].childNodes[0].nodeValue); //Here I'm getting the value contained by the <return> node
-                console.log(this.response_number); //I'm printing my result square number
-            }
-        }
-    }
-    // Send the POST request
-    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-    xmlhttp.responseType = "document";
-    xmlhttp.send(sr);
-  } */
-
+      title: 'ERROR',
+      subTitle: 'Usted a ingresado un usuario o contraseña invalidos.',
+      buttons: ['Aceptar']
+    });
+    
+    alert.present();
+  }
 }
