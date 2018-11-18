@@ -33,7 +33,7 @@ export class LoginPage {
 
   login(){
 
-    this.loginProvider.login(this.myForm.value.usuario, this.myForm.value.password).then(data =>{
+    this.loginProvider.login(this.myForm.value.usuario, btoa(this.myForm.value.password)).then(data =>{
 
       this.listlogin = data;
       this.dato = this.listlogin[0];
