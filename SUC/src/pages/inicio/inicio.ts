@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { EventoPage } from '../evento/evento';
 import { CreareventoPage } from '../crearevento/crearevento';
+import { MateriaProvider } from '../../providers/materia/materia';
 
 @Component({
   selector: 'page-inicio',
@@ -11,11 +12,20 @@ import { CreareventoPage } from '../crearevento/crearevento';
 export class InicioPage {
 
   identificacion;
-  listDatos;
+  listmaterias;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController) { 
+  constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public MateriaProvider: MateriaProvider) { 
 
-    this.identificacion = navParams.get('identificacion');
+    this.getmaterias(this.identificacion);
+  }
+
+  getmaterias(identificacion) {
+
+    this.MateriaProvider.getmaterias(identificacion).then(data => {
+
+      this.listmaterias = data;
+    })
+
   }
 
   openMenu() {
@@ -66,12 +76,14 @@ export class InicioPage {
           role: 'cancel', // will always sort to be on the bottom
           icon: !this.platform.is('ios') ? 'close' : null,
           handler: () => {
-            console.log('Clic canlelar');
+            console.log('Clic cancelar');
           }
         }
       ]
+      
     });
     
     actionSheet.present();
   }
+  
 }

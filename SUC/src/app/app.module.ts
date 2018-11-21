@@ -22,6 +22,7 @@ import { LugarProvider } from '../providers/lugar/lugar';
 import { HttpClientModule } from '@angular/common/http';
 import { EventoProvider } from '../providers/evento/evento';
 import { LoginProvider } from '../providers/login/login';
+import { MateriaProvider } from '../providers/materia/materia';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginProvider } from '../providers/login/login';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage
+    CerrarSesionPage,
+    MateriaProvider
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { LoginProvider } from '../providers/login/login';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage
+    CerrarSesionPage,
+    MateriaProvider
 
   ],
   providers: [
@@ -63,7 +66,8 @@ import { LoginProvider } from '../providers/login/login';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LugarProvider,
     EventoProvider,
-    LoginProvider
+    LoginProvider,
+    MateriaProvider
   ]
 })
 export class AppModule {}

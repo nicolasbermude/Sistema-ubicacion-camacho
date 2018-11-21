@@ -10,23 +10,45 @@
 
 <ion-content padding >
 
-  <ion-card>
+  <ion-list>
+    <ion-item *ngFor="let materia of listmaterias">
+      <ion-card>
+  
+        <ion-card-header>
+  
+          {{ materia.codigomateria }}
+  
+        </ion-card-header>
+  
+        <ion-card-content>
 
-    <ion-card-header>Clase 1</ion-card-header>
-
-    <ion-card-content>
-
-      Materia: Ingenieria de software <br>
-      Lugar: sede sur <br>
-      Horario:10:00 am a 1:00pm
-
-      <button   ion-button  (click)="openMenu()">
-
-        <ion-col><ion-icon ios="ios-apps" md="md-apps" ></ion-icon></ion-col>
-
-      </button>
-    </ion-card-content>
-  </ion-card>
+          Materia: {{ materia.materianombre }} <br>
+          Grupo: {{ materia.gruponombre }}
+  
+        </ion-card-content>
+  
+        <ion-row>
+  
+          <ion-col col-4>
+          </ion-col>
+  
+          <ion-col col-8>
+  
+            <button ion-button (click)="openMenu()">
+  
+              <ion-col>
+                <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+              </ion-col>
+  
+            </button>
+  
+          </ion-col>
+  
+        </ion-row>
+  
+      </ion-card>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
  
