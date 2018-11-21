@@ -16,6 +16,7 @@ export class InicioPage {
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public MateriaProvider: MateriaProvider) { 
 
+    this.identificacion = navParams.get('identificacion');
     this.getmaterias(this.identificacion);
   }
 
@@ -85,5 +86,4 @@ export class InicioPage {
     
     actionSheet.present();
   }
-  
 }

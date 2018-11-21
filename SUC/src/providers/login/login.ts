@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoginProvider {
 
-  baseUrl:string = "http://localhost:8091/uniajc/login?usuario=";
+  baseUrl:string = "http://smartdev.uniajc.edu.co:8888/UNIAJC-WS/uniajc/login?usuario=";
 
   constructor(public http: HttpClient) {
     console.log('Provider Login');

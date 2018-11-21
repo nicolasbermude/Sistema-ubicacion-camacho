@@ -35,8 +35,7 @@ import { MateriaProvider } from '../providers/materia/materia';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage,
-    MateriaProvider
+    CerrarSesionPage
   ],
   imports: [
     BrowserModule,
@@ -54,8 +53,7 @@ import { MateriaProvider } from '../providers/materia/materia';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage,
-    MateriaProvider
+    CerrarSesionPage
 
   ],
   providers: [
