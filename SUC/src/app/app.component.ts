@@ -16,7 +16,7 @@ import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = InicioPage;
 
   pages: Array<{title: string, component: any}>;
 
