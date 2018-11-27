@@ -10,16 +10,18 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 })
 export class EventoPage {
   eventos;
+  idclase;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider,  public platform: Platform,
     public actionsheetCtrl: ActionSheetController) {
   
-    this.getevento();
+      this.idclase = navParams.get('idclase');
+      this.getevento(this.idclase);
   }
 
-  getevento(){
+  getevento(idclase){
 
-    this.EventoProvider.getevento().then(data =>{
+    this.EventoProvider.getevento(idclase).then(data =>{
 
       this.eventos = data;
     })

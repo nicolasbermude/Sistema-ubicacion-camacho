@@ -29,7 +29,7 @@ export class InicioPage {
 
   }
 
-  openMenu() {
+  openMenu(idclase) {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Opciones',
       cssClass: 'action-sheets-basic-page',
@@ -53,7 +53,7 @@ export class InicioPage {
           text: 'Eventos',
           icon: !this.platform.is('ios') ? 'bookmark' : null,
           handler: () => {
-            this.navCtrl.push(EventoPage);
+            this.navCtrl.push(EventoPage, {idclase: idclase});
             console.log('Clic evento');
           }
         },
@@ -68,7 +68,7 @@ export class InicioPage {
           text: 'Crear Evento',
           icon: !this.platform.is('ios') ? 'create' : null,
           handler: () => {
-            this.navCtrl.push(CreareventoPage);
+            this.navCtrl.push(CreareventoPage, {idclase: idclase});
             console.log('Clic crear evento');
           }
         },

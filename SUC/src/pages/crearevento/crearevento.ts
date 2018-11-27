@@ -14,11 +14,15 @@ export class CreareventoPage {
   fechainicio;
   fechafin;
   hora;
+  idclase;
 
   dateNow : Date = new Date();
   dateNowISO = this.dateNow.toISOString();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public EventoProvider: EventoProvider) {
+
+    this.idclase = navParams.get('idclase');
+  }
 
   ionViewDidLoad() {
 
@@ -30,6 +34,7 @@ export class CreareventoPage {
 
     let evento = {
       titulo: this.titulo,
+      idclase: this.idclase,
       mensaje: this.mensaje,
       fechainicio: this.fechainicio,
       fechafin: this.fechafin,
