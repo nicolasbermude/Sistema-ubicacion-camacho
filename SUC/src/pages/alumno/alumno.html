@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alumno</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let alumno of listalumnos">
+      <ion-card>
+  
+        <ion-card-header>
+  
+          Cédula: {{ alumno.ATR }}
+  
+        </ion-card-header>
+  
+        <ion-card-content>
+
+          Nombre: {{ alumno.ATR }}
+  
+        </ion-card-content>
+  
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

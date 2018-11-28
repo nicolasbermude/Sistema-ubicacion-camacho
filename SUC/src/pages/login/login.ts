@@ -19,6 +19,7 @@ export class LoginPage {
   listlogin;
   dato;
   identificacion;
+  pegeid;
   public loading:Loading;
   myForm: FormGroup;
 
@@ -41,7 +42,8 @@ export class LoginPage {
       try {
 
         this.identificacion = this.dato["identificacion"];
-        this.navCtrl.setRoot(InicioPage, {identificacion: this.identificacion});
+        this.pegeid = this.dato["usuario"];
+        this.navCtrl.setRoot(InicioPage, {identificacion: this.identificacion, pegeid: this.pegeid});
       }catch(error) {
 
         console.error(error);

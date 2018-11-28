@@ -11,19 +11,19 @@
 <ion-content padding >
 
   <ion-list>
-    <ion-item *ngFor="let materia of listmaterias">
+    <ion-item *ngFor="let materiadocente of listmateriasdocente">
       <ion-card>
   
         <ion-card-header>
   
-          {{ materia.codigomateria }}
+          {{ materiadocente.codigomateria }}
   
         </ion-card-header>
   
         <ion-card-content>
 
-          Materia: {{ materia.materianombre }} <br>
-          Grupo: {{ materia.gruponombre }}
+          Materia: {{ materiadocente.materianombre }} <br>
+          Grupo: {{ materiadocente.gruponombre }}
   
         </ion-card-content>
   
@@ -34,7 +34,47 @@
   
           <ion-col col-8>
   
-            <button ion-button (click)="openMenu( materia.gruponombre )">
+            <button ion-button (click)="openMenu( materiadocente.gruponombre, materiaalumno.codigomateria )">
+  
+              <ion-col>
+                <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+              </ion-col>
+  
+            </button>
+  
+          </ion-col>
+  
+        </ion-row>
+  
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let materiaalumno of listmateriasalumno">
+      <ion-card>
+  
+        <ion-card-header>
+  
+          {{ materiaalumno.codigomateria }}
+  
+        </ion-card-header>
+  
+        <ion-card-content>
+
+          Materia: {{ materiaalumno.materianombre }} <br>
+          Grupo: {{ materiaalumno.gruponombre }}
+  
+        </ion-card-content>
+  
+        <ion-row>
+  
+          <ion-col col-4>
+          </ion-col>
+  
+          <ion-col col-8>
+  
+            <button ion-button (click)="openMenu( materiaalumno.gruponombre, materiaalumno.codigomateria )">
   
               <ion-col>
                 <ion-icon ios="ios-apps" md="md-apps"></ion-icon>

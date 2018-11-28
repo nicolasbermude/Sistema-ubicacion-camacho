@@ -11,17 +11,31 @@ export class MateriaProvider {
     console.log('Provider Materia');
   }
 
-   public getmaterias(documento){
+  public getMateriasDocente(documento){
 
-     return new Promise(resolve => {
+    return new Promise(resolve => {
 
-       this.http.get(this.baseUrl + "materia?documentoIdentidad=" + documento + "").subscribe(data => {
+      this.http.get(this.baseUrl + "materia?documentoIdentidad=" + documento + "").subscribe(data => {
 
-         resolve(data);
-       }, err => {
+        resolve(data);
+      }, err => {
 
-         console.log(err);
-        })
+        console.log(err);
+      })
+    })
+  }
+
+  public getMateriasAlumno(pegeid) {
+
+    return new Promise(resolve => {
+
+      this.http.get(this.baseUrl + "URL" + pegeid).subscribe(data =>{
+
+        resolve(data);
+      }, err =>{
+
+        console.log(err);
+      })
     })
   }
 }

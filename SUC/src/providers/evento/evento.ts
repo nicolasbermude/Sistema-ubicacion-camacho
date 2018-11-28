@@ -5,11 +5,10 @@ import { Injectable } from '@angular/core';
 export class EventoProvider {
 
   baseUrl:string = "http://25.58.225.74:8080/SUC-WS/suc/"; 
-/*   baseUrl:string = "http://localhost:8090/SUC-WS/suc/";
- */  
+ 
   constructor(public http: HttpClient) {
 
-    console.log('Carga del provider.');
+    console.log('Provider evento.');
   }
   
   getevento(idclase) {

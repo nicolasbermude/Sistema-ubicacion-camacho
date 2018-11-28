@@ -10,6 +10,7 @@ import { RutaLugaresPage } from '../pages/ruta-lugares/ruta-lugares';
 import { NotasPage } from '../pages/notas/notas';
 import { EventoPage } from '../pages/evento/evento';
 import { CreareventoPage } from '../pages/crearevento/crearevento';
+import { AlumnoPage } from '../pages/alumno/alumno';
 
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { CerrarSesionPage } from '../pages/cerrar-sesion/cerrar-sesion';
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EventoProvider } from '../providers/evento/evento';
 import { LoginProvider } from '../providers/login/login';
 import { MateriaProvider } from '../providers/materia/materia';
+import { AlumnoProvider } from '../providers/alumno/alumno';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MateriaProvider } from '../providers/materia/materia';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage
+    CerrarSesionPage,
+    AlumnoPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { MateriaProvider } from '../providers/materia/materia';
     EventoPage,
     CreareventoPage,
     AcercaDePage,
-    CerrarSesionPage
+    CerrarSesionPage,
+    AlumnoPage
 
   ],
   providers: [
@@ -65,7 +69,8 @@ import { MateriaProvider } from '../providers/materia/materia';
     LugarProvider,
     EventoProvider,
     LoginProvider,
-    MateriaProvider
+    MateriaProvider,
+    AlumnoProvider
   ]
 })
 export class AppModule {}

@@ -4,7 +4,8 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 import { EventoPage } from '../evento/evento';
 import { CreareventoPage } from '../crearevento/crearevento';
 import { MateriaProvider } from '../../providers/materia/materia';
-import {  AlunProvider } from '../../providers/alumnos/alun';
+import { AlumnoPage } from '../../pages/alumno/alumno';
+
 @Component({
   selector: 'page-inicio',
   templateUrl: 'inicio.html',
@@ -12,37 +13,36 @@ import {  AlunProvider } from '../../providers/alumnos/alun';
 export class InicioPage {
 
   identificacion;
-  listmaterias;
-  Alum;
   pegeid;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform,
-     public actionsheetCtrl: ActionSheetController,
-      public MateriaProvider: MateriaProvider,public AlunProvider:AlunProvider) {
+  listmateriasdocente;
+  listmateriasalumno;
 
-        this.identificacion = navParams.get('identificacion');
-        this.getmaterias(this.identificacion);
-        this.getalum(this.pegeid);
-      }
+  constructor(public navParams: NavParams, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController, public MateriaProvider: MateriaProvider) {
 
-
-  getmaterias(identificacion) {
-
-    this.MateriaProvider.getmaterias(identificacion).then(data => {
-
-      this.listmaterias = data;
-    })
-
+    this.identificacion = navParams.get('identificacion');
+    this.pegeid = navParams.get('pegeid');
+    this.getMateriasDocente(this.identificacion);
+    this.getMateriasAlumno(this.pegeid);
   }
-  getalum(pegeid){
 
-    this.AlunProvider.getalum(pegeid).then(data =>{
+  getMateriasDocente(identificacion) {
 
-      this.Alum = data;
+    this.MateriaProvider.getMateriasDocente(identificacion).then(data => {
+
+      this.listmateriasdocente = data;
     })
   }
 
-  openMenu(idclase) {
+  getMateriasAlumno(pegeid){
+
+    this.MateriaProvider.getMateriasAlumno(pegeid).then(data =>{
+
+      this.listmateriasalumno = data;
+    })
+  }
+
+  openMenu(idclase, codigomateria) {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Opciones',
       cssClass: 'action-sheets-basic-page',
@@ -62,6 +62,14 @@ export class InicioPage {
             console.log('Clic chat');
           }
         }, */
+        {
+          text: 'Alumnos',
+          icon: !this.platform.is('ios') ? 'bookmark' : null,
+          handler: () => {
+            this.navCtrl.push(AlumnoPage, {codigogrupo: idclase, codigomateria: codigomateria});
+            console.log('Clic alumnos');
+          }
+        },
         {
           text: 'Eventos',
           icon: !this.platform.is('ios') ? 'bookmark' : null,
