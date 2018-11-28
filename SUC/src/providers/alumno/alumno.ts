@@ -14,7 +14,7 @@ export class AlumnoProvider {
 
     return new Promise(resolve => {
 
-      this.http.get(this.baseUrl + "URL" + codigogrupo + "URL" + codigomateria).subscribe(data =>{
+      this.http.get(this.baseUrl + "materia?gruponombre" + codigogrupo + "&codigomateria" + codigomateria).subscribe(data =>{
 
         resolve(data);
       }, err =>{

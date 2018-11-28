@@ -15,7 +15,7 @@ export class MateriaProvider {
 
     return new Promise(resolve => {
 
-      this.http.get(this.baseUrl + "materia?documentoIdentidad=" + documento + "").subscribe(data => {
+      this.http.get(this.baseUrl + "muchachos?documento=" + documento + "").subscribe(data => {
 
         resolve(data);
       }, err => {
