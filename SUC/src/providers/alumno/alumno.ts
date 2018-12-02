@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AlumnoProvider {
 
-  baseUrl: string = "http://25.1.90.3:8080/UNIAJC-WS-Oracle/uniajc/";
+  baseUrl: string = "http://localhost:8092/uniajc/";
 
   constructor(public http: HttpClient) {
     console.log('Provider Alumno');
@@ -14,7 +14,7 @@ export class AlumnoProvider {
 
     return new Promise(resolve => {
 
-      this.http.get(this.baseUrl + "materia?gruponombre" + codigogrupo + "&codigomateria" + codigomateria).subscribe(data =>{
+      this.http.get(this.baseUrl + "materia?gruponombre=" + codigogrupo + "&codigomateria=" + codigomateria).subscribe(data =>{
 
         resolve(data);
       }, err =>{

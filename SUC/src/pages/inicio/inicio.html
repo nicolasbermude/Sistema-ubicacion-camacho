@@ -34,7 +34,7 @@
   
           <ion-col col-8>
   
-            <button ion-button (click)="openMenu( materiadocente.gruponombre, materiaalumno.codigomateria )">
+            <button ion-button (click)="openMenu( materiadocente.gruponombre, materiadocente.codigomateria )">
   
               <ion-col>
                 <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
@@ -56,14 +56,14 @@
   
         <ion-card-header>
   
-          {{ materiaalumno.codigomateria }}
+          {{ materiaalumno.codmateria }}
   
         </ion-card-header>
   
         <ion-card-content>
 
-          Materia: {{ materiaalumno.materianombre }} <br>
-          Grupo: {{ materiaalumno.gruponombre }}
+          Materia: {{ materiaalumno.materia }} <br>
+          Grupo: {{ materiaalumno.grupo }}
   
         </ion-card-content>
   
@@ -74,7 +74,7 @@
   
           <ion-col col-8>
   
-            <button ion-button (click)="openMenu( materiaalumno.gruponombre, materiaalumno.codigomateria )">
+            <button ion-button (click)="openMenu( materiaalumno.grupo, materiaalumno.codmateria )">
   
               <ion-col>
                 <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
